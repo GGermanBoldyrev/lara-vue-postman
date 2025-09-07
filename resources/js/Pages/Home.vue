@@ -1,9 +1,9 @@
 <script setup>
-import AppLayout from '@/Layouts/AppLayout.vue'
+import MainPageLayout from '@/Layouts/MainPageLayout.vue'
 </script>
 
 <template>
-    <AppLayout>
+    <MainPageLayout>
         <div>
             asd
         </div><div>
@@ -11,7 +11,7 @@ import AppLayout from '@/Layouts/AppLayout.vue'
         </div><div>
             asd
         </div>
-    </AppLayout>
+    </MainPageLayout>
 </template>
 
 <style scoped>

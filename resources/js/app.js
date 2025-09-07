@@ -16,6 +16,9 @@ import * as directives from 'vuetify/directives';
 import { aliases, mdi } from 'vuetify/iconsets/mdi'
 import '@mdi/font/css/materialdesignicons.css'
 
+// Стили
+import '/resources/css/vuetify-overrides.css'
+
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
 const vuetify = createVuetify({
@@ -36,7 +39,7 @@ const vuetify = createVuetify({
                 },
             },
         },
-    }
+    },
 });
 
 createInertiaApp({

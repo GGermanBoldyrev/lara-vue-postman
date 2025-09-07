@@ -1,0 +1,6 @@
+/*Ширина контейнера на больших экранах*/
+@media (min-width: 1920px) {
+    .v-container:not(.container--fluid) {
+        max-width: 1600px !important;
+    }
+}

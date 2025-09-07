@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.main-content {
+    padding: 8px 16px !important;
+    border-radius: 8px !important;
+    background-color: white !important;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08) !important;
+}
