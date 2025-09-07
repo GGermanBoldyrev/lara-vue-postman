@@ -1,19 +1,27 @@
 <script setup>
 import { ref, watch } from "vue"
+import { useForm } from "@inertiajs/vue3"
 
 const props = defineProps({
     modelValue: Boolean
 })
 const emit = defineEmits(["update:modelValue"])
 
-const name = ref("")
+const form = useForm({
+    name: ""
+})
 
 watch(() => props.modelValue, (val) => {
-    if (!val) name.value = ""
+    if (!val) form.reset()
 })
 
 function create() {
-    console.log('create')
+    form.post(route('workspaces.store'), {
+        onSuccess: () => {
+            emit("update:modelValue", false)
+            form.reset()
+        }
+    })
 }
 </script>
 
@@ -32,7 +40,7 @@ function create() {
 
             <v-card-text class="pt-8">
                 <v-text-field
-                    v-model="name"
+                    v-model="form.name"
                     label="Название Workspace"
                     variant="solo-filled"
                     density="comfortable"
