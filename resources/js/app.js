@@ -12,11 +12,31 @@ import { createVuetify } from 'vuetify';
 import * as components from 'vuetify/components';
 import * as directives from 'vuetify/directives';
 
+// Иконки MDI
+import { aliases, mdi } from 'vuetify/iconsets/mdi'
+import '@mdi/font/css/materialdesignicons.css'
+
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
 const vuetify = createVuetify({
     components,
     directives,
+    icons: {
+        defaultSet: 'mdi',
+        aliases,
+        sets: { mdi },
+    },
+    theme: {
+        defaultTheme: 'light',
+        themes: {
+            light: {
+                colors: {
+                    background: '#F5F7FA',
+                    primary: '#005BFF'
+                },
+            },
+        },
+    }
 });
 
 createInertiaApp({
