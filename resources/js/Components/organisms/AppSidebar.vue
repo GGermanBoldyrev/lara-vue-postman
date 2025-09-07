@@ -1,8 +1,11 @@
 <script setup>
-import { ref } from "vue"
+import {ref} from "vue"
+import WorkspaceDialog from "@/Components/molecules/WorkspaceDialog.vue";
 
 // хранит, какие группы открыты
-const open = ref([])
+const openedWorkspaces = ref([])
+
+const newWorkspaceDialog = ref(false)
 
 const workspaces = [
     {
@@ -26,14 +29,14 @@ const workspaces = [
 
             <v-btn
                 icon="mdi-plus"
-                variant="tonal"
-                size="x-small"
                 color="primary"
-                @click="console.log('add workspace')"
+                variant="text"
+                size="x-small"
+                @click="newWorkspaceDialog = true"
             />
         </div>
 
-        <v-list density="compact" v-model:opened="open" nav>
+        <v-list density="compact" v-model:opened="openedWorkspaces" nav>
             <v-list-group
                 v-for="ws in workspaces"
                 :key="ws.id"
@@ -57,11 +60,14 @@ const workspaces = [
                 />
             </v-list-group>
         </v-list>
+
+        <!-- Попап -->
+        <WorkspaceDialog
+            v-model="newWorkspaceDialog"
+            @create="console.log('Создать workspace', $event)"
+        />
     </aside>
 </template>
-
-<style scoped>
-</style>
 
 <style scoped>
 
